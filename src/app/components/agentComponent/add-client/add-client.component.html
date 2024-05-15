@@ -1,0 +1,8 @@
+<div *ngIf="currentStep === 1">
+  <app-first-add (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-first-add>  </div>
+<div *ngIf="currentStep === 2 ">
+  <app-second-add (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-second-add>
+</div>
+<div *ngIf="currentStep === 3">
+  <app-third-add (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-third-add>
+</div>

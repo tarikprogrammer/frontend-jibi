@@ -1,0 +1,191 @@
+<div class="body">
+    <aside class="aside">
+      <div class="top">
+        <div class="logo">
+          <img [src]="logoUrl">
+          <h3>JI<span class="jibi">BI</span></h3>
+        </div>
+        <span class="dismiss">
+            <i class="fa-solid fa-xmark"></i>
+      </span>
+      </div>
+      <div class="sidebare">
+        <h3 class="discover">
+          <i class="fas fa-compass"></i>
+          <a  (click)="setHome()">Discover</a>
+        </h3>
+        <h3>
+          <i class="fas fa-user-tie"></i>
+          <a  (click)="isClick()"  routerLink="clients" >Client</a>
+        </h3>
+        <h3>
+          <i class="fa-solid fa-plus"></i>
+          <a  (click)="isClick()"  routerLink="add" >Add client</a>
+        </h3>
+        <h3>
+          <i class="fa-regular fa-user"></i>
+          <a  (click)="isClick()"  routerLink="profile" >Profile</a>
+        </h3>
+        <h3 class="logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <a href="#" >logout</a>
+        </h3>
+      </div>
+    </aside>
+    <aside class="small-view" *ngIf="isShow">
+      <div class="top">
+        <div class="logo">
+          <img [src]="logoUrl">
+          <h3>JI<span class="jibi">BI</span></h3>
+        </div>
+        <span class="dismiss">
+            <i (click)="dismissAside()" class="fa-solid fa-xmark"></i>
+      </span>
+      </div>
+      <div class="sidebare">
+        <h3 class="discover">
+          <i class="fas fa-compass"></i>
+          <a (click)="setHome()" >Discover</a>
+        </h3>
+        <h3 class="client">
+          <i class="fas fa-user-tie"></i>
+          <a (click)="isClick()" routerLink="clients" >Client</a>
+        </h3>
+        <h3 class="add">
+          <i class="fa-solid fa-plus"></i>
+          <a (click)="isClick()" routerLink="add" >Add client</a>
+        </h3>
+        <h3 class="profile">
+          <i class="fa-regular fa-user"></i>
+          <a (click)="isClick()"  routerLink="profile" >Profile</a>
+        </h3>
+        <h3 class="logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <a href="#" class="link-logout" >logout</a>
+        </h3>
+      </div>
+    </aside>
+    <div class="main" >
+     <nav>
+       <div class="search">
+         <i (click)="showAside()" class="fa-solid fa-bars"></i>
+         <i  class="fa-solid fa-magnifying-glass"></i>
+         <input type="search" placeholder="search" >
+       </div>
+       <div class="logo-picture">
+         <div class="notify">
+           <i (click)="setProfile()" class="fa-regular fa-bell"></i>
+           <span *ngIf="!agentService.isChangedPass"></span>
+         </div>
+         <div class="name">
+           <p>Hey,<strong>{{agentService.currentAgent.username}}</strong></p>
+           <small>Agent</small>
+         </div>
+         <div class="img" >
+           <img [src]="coverPath">
+         </div>
+       </div>
+     </nav>
+      <div *ngIf="!linkClick">
+        <router-outlet ></router-outlet>
+      </div>
+      <div class="services" *ngIf="linkClick">
+        <div class="dispo c1">
+          <h2>
+            <span><i class="fas fa-headset"></i></span>
+            24h/7j
+          </h2>
+          <i class="fa fa-ellipsis-h"></i>
+        </div>
+        <div class="dispo c2">
+          <h2>
+            <span><i class="fas fa-money-check-alt"></i></span>
+            Faster & Smooth
+          </h2>
+          <i class="fa fa-ellipsis-h"></i>
+        </div>
+        <div class="dispo c3">
+          <h2>
+            <span><i class="fa-solid fa-certificate"></i></span>
+            greater than 15 years
+          </h2>
+          <i class="fa fa-ellipsis-h"></i>
+        </div>
+      </div>
+      <div class="client-added" *ngIf="linkClick" >
+        <!--<div class="graph-2">
+          <canvas id="chart" ></canvas>
+        </div>
+        <div class="graph-1">
+          <canvas id="myChart" ></canvas>
+        </div>-->
+
+
+        <!--<div class="relative overflow-x-auto rounded" >
+          <table class="w-full text-sm text-left rtl:text-right border-blue-700 rounded " style="background-color: #161b2e;" >
+            <thead class="text-xs bg-indigo-950 text-white  uppercase">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                image
+              </th>
+              <th scope="col" class="px-6 py-3">
+                name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                date de creation
+              </th>
+              <th scope="col" class="px-6 py-3">
+                phone
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-b ">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <img src="../../assets/media/Mon_image.png" class="logo-table">
+              </th>
+              <td class="px-6 py-4">
+                Tarik
+              </td>
+              <td class="px-6 py-4">
+                2023/12/09
+              </td>
+              <td class="px-6 py-4">
+                0777871239
+              </td>
+            </tr>
+            <tr class="border-b ">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <img src="../../assets/media/Mon_image.png" class="logo-table">
+              </th>
+              <td class="px-6 py-4">
+                Tarik
+              </td>
+              <td class="px-6 py-4">
+                2023/12/09
+              </td>
+              <td class="px-6 py-4">
+                0777871239
+              </td>
+            </tr>
+            <tr class="border-b">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <img src="../../assets/media/Mon_image.png" class="logo-table">
+              </th>
+              <td class="px-6 py-4">
+                Tarik
+              </td>
+              <td class="px-6 py-4">
+                2023/12/09
+              </td>
+              <td class="px-6 py-4">
+                0777871239
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>-->
+
+      </div>
+    </div>
+</div>

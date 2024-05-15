@@ -1,0 +1,30 @@
+.img {
+  background-image: url("src/assets/media/blob-scene-haikei (1).svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.slideIn{
+  opacity: 0;
+  animation: slideDown 1s ease-in-out 0s 1 normal both;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

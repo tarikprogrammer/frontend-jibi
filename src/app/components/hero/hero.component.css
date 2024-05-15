@@ -1,0 +1,58 @@
+.glass {
+
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
+
+}
+
+.slideLeft1{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .2s 1 normal both;
+}
+.slideLeft2{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .4s 1 normal both;
+}
+.slideLeft3{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .6s 1 normal both;
+}
+.slideLeft4{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .8s 1 normal both;
+}
+
+.slideUp1{
+  opacity: 0;
+  animation: slideUp 1s ease-in-out 1s 1 normal both;
+}
+.slideUp2{
+  opacity: 0;
+  animation: slideUp 1s ease-in-out 1.2s 1 normal both;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

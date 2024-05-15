@@ -1,0 +1,88 @@
+.header{
+  box-shadow: 0px 0px 50px 2px #f47e17;
+
+}
+
+i{
+  font-size: 1.2rem;
+  transform:translateY(.09rem);
+
+}
+
+.active-link {
+  color: #ba3339; /* This is the hex code for ng-indigo-600 */
+}
+
+.slideRight1{
+  opacity: 0;
+  animation: slideRight 1s ease-in-out .2s 1 normal both;
+}
+
+.slideRight2{
+  opacity: 0;
+  animation: slideRight 1s ease-in-out .3s 1 normal both;
+}
+
+.slideRight3{
+  opacity: 0;
+  animation: slideRight 1s ease-in-out .4s 1 normal both;
+}
+
+.slideRight4{
+  opacity: 0;
+  animation: slideRight 1s ease-in-out .5s 1 normal both;
+}
+
+.logo{
+  opacity: 0;
+  animation: logoEntrance 0.5s cubic-bezier(0.33, 1, 0.68, 1) .6s 1 normal both;
+}
+
+.login{
+  opacity: 0;
+  animation: slideDown 1s ease-in-out 1.5s 1 normal both;
+
+}
+.signup{
+  opacity: 0;
+  animation: slideDown 1s ease-in-out 1.6s 1 normal both;
+
+}
+
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

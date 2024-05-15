@@ -1,0 +1,14 @@
+<div #registerPage class="flex flex-col img overflow-y-auto relative">
+  <div class="fixed w-full z-10 slideIn">
+    <app-header></app-header>
+  </div>
+
+  <div class="mt-32">
+    <p class="slideLeft3 text-center jibi text-2xl cursor-default my-6 font-extrabold sm:text-2xl lg:text-4xl">
+      Let's get to know each other
+    </p>
+    <div class="slideRight">
+      <app-register-form (scrollToTopRequest)="scrollToTop()"></app-register-form>
+    </div>
+  </div>
+</div>

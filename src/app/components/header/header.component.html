@@ -1,0 +1,142 @@
+<nav class="bg-[#ffcd38] w-full header py-3 fixed z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-2 logo">
+        <app-logo></app-logo>
+      </div>
+      <div class="flex items-center gap-2">
+
+        <div class="header-content hidden md:block">
+          <div class="flex items-baseline space-x-4">
+            <a
+              [class.active-link]="isActive('/home')"
+              class="slideRight1 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              href="/home"
+            ><i class='bx bxs-home'></i> {{ 'home' | translate }}</a
+            >
+            <a
+              [class.active-link]="isActive('/back-office')"
+              class="slideRight2 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              href="/back-office"
+            ><i class='bx bxs-dashboard'></i> {{ 'back-office' | translate }}</a
+            >
+            <a
+              [class.active-link]="isActive('/customer-space')"
+              class="slideRight3 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              href="/customer-space"
+            ><i class='bx bxs-group'></i> {{ 'customerSpace' | translate }}</a
+            >
+            <a
+              [class.active-link]="isActive('/payment')"
+              class="slideRight4 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              href="/payment"
+            ><i class='bx bxs-credit-card'></i> {{ 'payment' | translate }}</a
+            >
+          </div>
+        </div>
+
+      </div>
+      <div class="hidden md:block">
+        <a
+          [class.active-link]="isActive('/login')"
+          class="login mr-2 text-gray-800  bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+          href="/login"
+        >
+          <i class='bx bxs-user'></i> Login
+        </a>
+        <a
+          [class.active-link]="isActive('/signup')"
+          class="signup text-gray-800  hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+          href="/signup"
+        >
+          <i class='bx bxs-user-plus'></i> Sign Up
+        </a>
+      </div>
+
+      <div class="login-button hidden md:block">
+
+        <!-- <app-language-switcher></app-language-switcher> -->
+
+      </div>
+      <div class="-mr-2 flex md:hidden">
+        <button
+          type="button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-white hover:bg-[#e9a123] focus:outline-none focus:text-[#f47e17] transition duration-150 ease-in-out"
+          aria-label="Main menu"
+          aria-expanded="false"
+          (click)="isMenuOpen = !isMenuOpen"
+        >
+          <svg
+            *ngIf="!isMenuOpen"
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            *ngIf="isMenuOpen"
+            class="h-6 w-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="md:hidden transition-all ease-in-out h-screen w-full bg-[#ffcd38] absolute z-10"
+    [ngClass]="{ 'max-h-0 overflow-hidden': !isMenuOpen, 'max-h-screen': isMenuOpen }"
+  >
+    <div class="px-2 pt-2 pb-3 sm:px-3">
+      <a
+        href="/home"
+        class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-home'></i> {{ 'home' | translate }}</a
+      >
+      <a
+        href="/back-office"
+        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-dashboard'></i> {{ 'back-office' | translate }}</a
+      >
+      <a
+        href="/customer-space"
+        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-group'></i> {{ 'customerSpace' | translate }}</a
+      >
+      <a
+        href="/payment"
+        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-credit-card'></i> {{ 'payment' | translate }}</a
+      >
+      <a
+        href="/login"
+        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-user'></i> {{ 'login' | translate }}</a
+      >
+      <a
+        href="/signup"
+        class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-white hover:bg-[#e9a123] transition duration-300"
+      ><i class='bx bxs-user-plus'></i> {{ 'signup' | translate }}</a
+      >
+
+    </div>
+
+
+  </div>
+</nav>

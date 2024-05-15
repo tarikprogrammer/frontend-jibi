@@ -1,0 +1,75 @@
+<form class="my-16 sm:my-20 flex flex-col justify-center items-center">
+  <!-- Breadcrumbs -->
+  <nav aria-label="Progress">
+    <ol role="list" class="flex items-center space-x-4">
+      <li>
+        <div
+          class="cursor-pointer text-sm font-medium hover:text-[#E9A123]"
+          [class.text-[#BA3339]="currentStep === 1"
+          [class.active-link]="currentStep === 1"
+          (click)="showStep(1)"
+        >
+          Profile
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center">
+          <svg
+            class="h-5 w-5 flex-shrink-0 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <div
+            class="cursor-pointer text-sm font-medium hover:text-[#E9A123]"
+            [class.text-gray-500]="currentStep !== 2"
+            [class.active-link]="currentStep === 2"
+            (click)="showStep(2)"
+          >
+            Personal Infos
+          </div>
+        </div>
+      </li>
+      <li>
+        <!--<div class="flex items-center">
+          <svg
+            class="h-5 w-5 flex-shrink-0 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd"
+            />
+          </svg>
+         &lt;!&ndash; <div
+            class="cursor-pointer text-sm font-medium hover:text-[#E9A123]"
+            [class.text-gray-500]="currentStep !== 3"
+            [class.active-link]="currentStep === 3"
+            (click)="showStep(3)"
+          >
+            Notifications
+          </div>&ndash;&gt;
+        </div>-->
+      </li>
+    </ol>
+  </nav>
+
+  <!-- Step Content -->
+  <div *ngIf="currentStep === 1">
+    <app-profile (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-profile>  </div>
+  <div *ngIf="currentStep === 2 ">
+    <app-personal-infos (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-personal-infos>
+  </div>
+  <!--<div *ngIf="currentStep === 3">
+    <app-notifications (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-notifications>
+  </div>-->
+</form>

@@ -1,0 +1,65 @@
+.slideIn{
+  opacity: 0;
+  animation: slideDown 1s ease-in-out 0s 1 normal both;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.img {
+  background-image: url("src/assets/media/blob-scene-haikei (2).svg");
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  position: fixed; /* Fix the position of the container */
+  top: 0; /* Align the top edge of the container with the top edge of the viewport */
+  left: 0; /* Align the left edge of the container with the left edge of the viewport */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  z-index: -1; /* Ensure the background image is behind your content */
+}
+
+.slideRight{
+  opacity: 0;
+  animation: slideRight 1s ease-in-out .6s 1 normal both;
+}
+
+.slideLeft2{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .4s 1 normal both;
+}
+.slideLeft3{
+  opacity: 0;
+  animation: slideLeft 1s ease-in-out .6s 1 normal both;
+}
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

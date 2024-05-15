@@ -1,0 +1,27 @@
+<div class="max-w-4xl mx-auto mt-12 " [formGroup]="updateProfile">
+  <div class="bg-white rounded-lg p-8 w-full sm:w-auto container">
+    <h2 class="text-xl font-semibold mb-4">Profile</h2>
+    <p class="updatePass" *ngIf="isChangedPass">{{changePass}}</p>
+    <div  class="container-loader" *ngIf="isLoader">
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="grid  grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label  class="block text-sm font-medium leading-5 text-gray-700">phone</label>
+        <input type="text" [value]="serviceAgent.currentAgent.phone" [disabled]="true"  placeholder="password"  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+      </div>
+      <div>
+        <label  class="block text-sm font-medium leading-5 text-gray-700">current password</label>
+        <input type="password"    placeholder="password"  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+      </div>
+      <div>
+        <label  class="block text-sm font-medium leading-5 text-gray-700">New password</label>
+        <input type="password" formControlName="password"  placeholder="confirm password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end gap-3">
+      <button  class="px-4 py-2 bg-slate-950 text-white rounded focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" type="reset" >cancel</button>
+      <button type="button" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" (click)="update()" >update</button>
+    </div>
+  </div>
+</div>

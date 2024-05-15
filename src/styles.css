@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  height: 2px;
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #DFE9EB; /* Light background color to match the indigo theme */
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #B8C0C2; /* Slightly darker background color for hover */
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #B8C0C2; /* Slightly darker background color for active */
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #F47E17; /* Indigo color for the scrollbar thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #BA3339A0; /* Darker indigo color for hover */
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #BA3339; /* Darker indigo color for active */
+}
+
+
+input , textarea{
+  background-color: #1F2937;
+}
+
+

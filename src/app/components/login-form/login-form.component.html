@@ -1,0 +1,24 @@
+<div class="container" >
+  <form [formGroup]="authAgent" [ngStyle]="{'opacity':loader?'0.8':'1'}">
+    <div *ngIf="loader" class="container-loader">
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <h3>Login</h3>
+    <p *ngIf="showMessage">{{messageAgent}}</p>
+    <div class="container-content" >
+      <label>Number phone</label>
+      <input type="text" placeholder="number phone" formControlName="phone" [attr.disabled]="loader? true:null">
+    </div>
+    <div class="container-content" >
+      <label>Password</label>
+      <div class="eye" >
+        <input id="password" type="password" placeholder="password" formControlName="password" [attr.disabled]="loader? true:null">
+        <i *ngIf="!passwordStatus" (click)="password()" class="fa-solid fa-eye"></i>
+        <i *ngIf="passwordStatus" (click)="password()" class="fa-solid fa-eye-slash"></i>
+      </div>
+    </div>
+    <div class="container-btn">
+       <button type="submit" (click)="login()"  >login</button>
+    </div>
+  </form>
+</div>
