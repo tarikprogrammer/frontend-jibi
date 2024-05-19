@@ -13,18 +13,25 @@ export class AgentComponent implements OnInit,AfterViewInit{
   linkClick:boolean=true;
   coverPath:string="../../assets/images/";
   notificationAgent:string="";
+  isChangePass=false;
+  currentAgent=sessionStorage.getItem('currentAgent');
+
   constructor(private router:Router,public agentService:AuthAgentService) {
   }
   ngOnInit(): void {
     this.setHome();
-    this.coverPath=this.coverPath+this.agentService.currentAgent.imageUrl;
+    this.coverPath=this.coverPath+this.getSession().imageUrl;
+
 
   }
   ngAfterViewInit(): void {
     this.notificationAgent="change your password";
-    this.createChartjs1();
-    this.createChartjs2();
+      this.createChartjs1();
+      this.createChartjs2();
 
+  }
+  getSession(){
+    return this.currentAgent ? JSON.parse(this.currentAgent):null
   }
 
 
@@ -38,9 +45,9 @@ export class AgentComponent implements OnInit,AfterViewInit{
       type: 'doughnut',
       data: {
         labels: [
-          'Red',
-          'Blue',
-          'Yellow'
+          'compte de 200DH',
+          'compte de 5 000DH',
+          'compte de 20 000DH'
         ],
         datasets: [{
           label: 'My First Dataset',
@@ -52,6 +59,13 @@ export class AgentComponent implements OnInit,AfterViewInit{
           ],
           hoverOffset: 4
         }]
+      },options: {
+        plugins: {
+          legend: {
+              display:false
+
+          }
+        }
       }
     });
   }
@@ -70,7 +84,8 @@ export class AgentComponent implements OnInit,AfterViewInit{
             'rgba(75, 192, 192, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
+            'rgba(201, 203, 207, 0.2)',
+
           ],
           borderColor: [
             'rgb(255, 99, 132)',
@@ -79,7 +94,7 @@ export class AgentComponent implements OnInit,AfterViewInit{
             'rgb(75, 192, 192)',
             'rgb(54, 162, 235)',
             'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
+            'rgb(201, 203, 207)',
           ],
           borderWidth: 1
         }]
@@ -93,7 +108,6 @@ export class AgentComponent implements OnInit,AfterViewInit{
       }
     });
   }
-
   showAside() {
     this.isShow=true;
 
@@ -106,19 +120,38 @@ export class AgentComponent implements OnInit,AfterViewInit{
     this.linkClick=false;
     this.isShow=!this.isShow;
     this.agentService.getAllClient().subscribe((response) => {
-      console.log(response);
+     this.agentService.allClients=response;
+      console.log("service",this.agentService.allClients)
+      console.log("objet",Object.values(this.agentService.allClients))
+
     });
 
   }
 
   setHome() {
-   this.linkClick=true;
-   this.router.navigateByUrl('/agent');
+    this.linkClick=true;
+    setTimeout(()=>{
+      this.router.navigateByUrl('/agent');
+    },1000)
+    this.ngAfterViewInit();
+
   }
 
 
   setProfile() {
+    this.isChangePass=!this.isChangePass;
+
+  }
+
+  logout() {
+    sessionStorage.removeItem('currentAgent')
+    this.router.navigateByUrl("login")
+  }
+
+
+  changePassword() {
     this.linkClick=false;
+    this.isChangePass=false;
     this.router.navigateByUrl("agent/profile");
   }
 }

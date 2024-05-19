@@ -13,6 +13,7 @@ import {UpdateProfileComponent} from "./components/agentComponent/update-profile
 import {ShowClientComponent} from "./components/agentComponent/show-client/show-client.component";
 import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
 import {AuthGuard} from "./guards/guard.guard";
+import {AgentComponent} from "./components/agent/agent.component";
 
 
 const routes: Routes = [
@@ -23,10 +24,11 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'signup', component: RegisterPageComponent },
   { path: 'login', component: LoginPageComponent },
-  {path:'agent',component:AgentPageComponent,canActivate:[AuthGuard],children:[
+  {path:'agent',component:AgentComponent,canActivate:[AuthGuard],children:[
       {path:'add',component:AddClientComponent},
       {path:'profile',component:UpdateProfileComponent},
       {path:'clients',component:ShowClientComponent},
+      { path: 'login', component: LoginPageComponent }
     ]},
   {path:'admin',component:AdminPageComponent}
 

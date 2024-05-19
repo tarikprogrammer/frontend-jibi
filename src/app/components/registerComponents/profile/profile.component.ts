@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
     this.profile = this.fb.group({
       username:[""],
-      imageUrl:["test tarik"],
+      imageUrl:[""],
     })
   }
 

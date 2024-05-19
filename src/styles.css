@@ -40,4 +40,6 @@ input , textarea{
   background-color: #1F2937;
 }
 
-
+html{
+  scroll-behavior: smooth;
+}

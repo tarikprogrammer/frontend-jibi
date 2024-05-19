@@ -31,7 +31,7 @@ aside{
 }
 .logo{
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 .logo img{
@@ -39,7 +39,7 @@ aside{
   height: 35px;
 }
 .logo h3{
-  font-size: 26px;
+  font-size: 35px;
   font-weight: 700;
 }
 .dismiss i{
@@ -131,6 +131,7 @@ aside{
   display: flex;
   gap: 25px;
   align-items: center;
+  position: relative;
 }
 .img img{
   width: 40px;
@@ -150,9 +151,9 @@ aside{
   border-radius: 50%;
 }
 .services{
-  margin:30px 40px 10px;
+  margin:30px 10px 10px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   gap: 20px;
 
 }
@@ -184,26 +185,35 @@ aside{
   top: 1px;
 }
 .dispo{
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
-  height: 130px;
+  height: 90px;
   position: relative;
   cursor: pointer;
-  box-shadow: 0px 0px 1px 0px gray;
+  overflow-x: hidden
+
 }
 .c1{
-  background-color:#D21312;
+  background-image: linear-gradient(to right,#535ddc,#6065c9,#6869ba,#706cb3);
   color: #ffffff;
+
 }
 .c2{
-  background-color:#408E91;
+ background-image: linear-gradient(to right,#F47E17, #ea8f43);
   color: #ffffff;
+  position: relative;
 }
 .c3{
-  background-color:#FFD966;
+background-image: linear-gradient(to right,#1c4c5b, #5a93a6);
+  color: #ffffff;
+}
+.c4{
+ background-image: linear-gradient(to right,#3d0466, #895baf);
   color: #ffffff;
 }
 .dispo h2{
+  width: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -214,7 +224,9 @@ aside{
   font-weight: 500;
 
 }
-.dispo h2 span{
+
+
+/*.dispo h2 span{
   display: inline-block;
   text-align: center;
   width: 40px;
@@ -222,7 +234,7 @@ aside{
   border-radius: 50%;
   line-height: 40px;
   font-size: 25px;
-}
+}*/
 .fa-ellipsis-h{
   position: absolute;
   top: 12px;
@@ -231,10 +243,11 @@ aside{
   font-size: 15px;
 }
 .client-added{
-  margin: 50px 40px 0px 40px;
+  overflow-x: hidden;
+  margin:30px 10px 10px 10px;
   display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 40px;
+  grid-template-columns: calc(100% - 30%) auto;
+  gap: 20px;
   align-items: center;
 }
 .logo-table{
@@ -246,45 +259,129 @@ aside{
   background-color:#5b0494;
   padding: 10px;
   border-radius: 10px;
-  width: 350px;
-  height: 280px;
-  box-shadow: 0px 0px 1px 0px gray;
   text-align: center;
-  line-height: 240px;
-}
-.graph-1 canvas{
   width: 100%;
-  margin: auto;
+  height: 310px;
+  position: relative;
+  overflow: hidden;
+}
+.graph-1 .header{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #52087c;
+}
+.graph-1 .header h1{
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+}
+.graph-1 .header h1 span i{
+  display: inline-block;
+  font-size: 20px;
+  color: #ffffff;
+}
+.graph-1 .main{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+.compte1,.compte2,.compte3{
+  display: flex;
+  text-wrap: nowrap;
+  align-items: center;
+  gap: 5px;
+  color: #ffffff;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+.compte1 span,.compte2 span ,.compte3 span{
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  border-radius: 4px;
+}
+.compte1 span{
+  background-color: rgb(255, 99, 132);
+}
+.compte2 span{
+  background-color: rgb(54, 162, 235);
+}
+.compte3 span{
+  background-color: rgb(255, 205, 86);
+}
+.graph{
+  width: 100%;
+}
+.graph-2 .header{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #52087c;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.garph-clients{
+  margin-top: 40px;
+  width:100%;
+  height: 200px;
+
+
+}
+#chart{
+
+
+}
+.graph-2 .header h1{
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 .graph-2{
   background-color:#5b0494;
   padding: 10px;
   border-radius: 10px;
   width: 100%;
-  height: 280px;
-  box-shadow: 0px 0px 4px #000000;
+  height: 310px;
   text-align: center;
+  position: relative;
+
+
 }
-.graph-2 canvas{
-  width: 100%;
-  margin: auto;
+
+
+#myChart{
+  width: 70%;
+
+
 }
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-*/
+.nav{
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+}
+.search h5{
+  color: #ffffff;
+  font-size: 20px;
+}
+.toast{
+  width: 300px;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(50px);
+  right: 100px;
+  cursor: pointer;
+  background-color:#3d0466;
+}
 .small-view {
   position: absolute;
   padding-right: 16px;
@@ -331,20 +428,12 @@ aside{
   .graph-1,.graph-2{
     margin-bottom: 30px;
   }
-  /*.main nav{
-    width: 100%;
-
-
-
-
-  /*.services{
-    background-color: red;
-    display:grid;
-    grid-template-columns: repeat(2,1.5fr);
-    column-gap: 20px;
-
+  .graph{
+    width: 80%;
   }
-  .dispo{
-    width: 100%;
-  }*/
+
+  .nav{
+    display: none;
+  }
+
 }

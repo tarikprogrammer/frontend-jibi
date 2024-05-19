@@ -12,15 +12,19 @@ export class UpdateProfileComponent implements OnInit{
   changePass="your password has been changed successfully";
   isChangedPass=false;
   isLoader=false;
+  currentAgent=sessionStorage.getItem('currentAgent');
   constructor(private fb:FormBuilder,public serviceAgent:AuthAgentService) {
   }
   ngOnInit(): void {
+
     this.updateProfile = this.fb.group({
       password:[""],
-      phone:[this.serviceAgent.currentAgent.phone]
+      phone:[this.getSession().phone]
     })
   }
-
+  getSession(){
+    return this.currentAgent ? JSON.parse(this.currentAgent):null
+  }
 
   update() {
     this.isLoader=true;

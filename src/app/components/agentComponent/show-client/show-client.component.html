@@ -1,6 +1,5 @@
 <div class="container mx-auto rounded-md overflow-x-auto">
   <table class="w-full bg-white  my-6">
-    {{clients}}
     <thead >
     <tr class="bg-rose-800 text-white">
       <th class="py-2 px-4">photo</th>
@@ -10,15 +9,18 @@
       <th class="py-2 px-4">email</th>
     </tr>
     </thead>
-    <tbody >
-    <tr class="hover:bg-gray-100" >
+    <tbody  >
+    <tr class="hover:bg-gray-100" *ngFor="let client of Object.values(service.allClients)" >
       <td class="py-2 px-4">
-        <!--<img class="img" [src]="coverPath+client[i].cover">-->
+        <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path  fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+          <image   x="0" y="0" width="24" height="24" class="rounded-full" />
+        </svg>
       </td>
-     <!-- <td class="py-2 px-4">{{client.fname+" "+client.lname}}</td>
+      <td class="py-2 px-4">{{client.fname+" "+client.lname}}</td>
       <td class="py-2 px-4">{{client.phone}}</td>
       <td class="py-2 px-4">{{client.numeroDePieceIdentite}}</td>
-      <td class="py-2 px-4">{{client.email}}</td>-->
+      <td class="py-2 px-4">{{client.email}}</td>
     </tr>
     </tbody>
   </table>

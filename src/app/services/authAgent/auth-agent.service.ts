@@ -12,7 +12,7 @@ export class AuthAgentService {
   isLogin:boolean=false;
   updateAgent!:FormGroup;
   isChangedPass:boolean=false;
-  allClients:any[]=[];
+  allClients:Object=[];
 
   constructor(private http:HttpClient) { }
   getData(login:FormGroup){

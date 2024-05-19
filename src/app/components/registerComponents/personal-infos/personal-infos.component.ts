@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter, ViewChild, ElementRef, OnInit, A
 import {RegisterServiceService} from "../../../services/registerAgent/register-service.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-personal-infos',
@@ -19,7 +20,7 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
   loader:boolean=false;
   passwordStatus:boolean=false;
   selectedFiles: any[] = [];
-  constructor(private registerService:RegisterServiceService,private fb:FormBuilder,private http:HttpClient) {
+  constructor(private registerService:RegisterServiceService,private fb:FormBuilder,private http:HttpClient,private router:Router) {
   }
   @Input() step: number = 2;
   @Output() stepChange = new EventEmitter<number>();
@@ -56,8 +57,7 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
       phone:this.fb.control(''),
       numero_imm:this.fb.control(''),
       numero_patente:this.fb.control(''),
-      file:this.fb.control(''),
-      password:this.fb.control('')
+      file:this.fb.control('')
     })
   }
 
@@ -84,10 +84,10 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
           this.agentCreated="your account has been created successfuly";
           this.isCreated=true;
           this.showToast=true;
-          this.loader=false
-
+          this.loader=false;
+          this.router.navigateByUrl("agent");
+          sessionStorage.setItem('currentAgent',JSON.stringify(response));
         },
-
         (error)=>{
           console.log("error");
           this.isCreated=false;

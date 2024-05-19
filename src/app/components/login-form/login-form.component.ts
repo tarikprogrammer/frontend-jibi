@@ -40,20 +40,22 @@ export class LoginFormComponent implements OnInit{
     setTimeout(()=>{
       this.auth.sendData().subscribe((response:any)=>{
         this.loader=false;
-          if(response['id']==null || response['agent']==false){
+          if(response['id']==null){
             this.messageAgent="you're not a agent !!";
             this.showMessage=true;
             setTimeout(()=>{
               this.showMessage=false;
             },3000)
           }
-          if(response['agent']==true && response['id']!=null ){
+          if(response['id']!=null ){
             this.auth.getAgentCurrent(response);
             this.auth.isLogin=true;
+            sessionStorage.setItem('currentAgent',JSON.stringify(response));
             this.router.navigateByUrl("agent")
           }
         }
       )
     },3000)
+
   }
 }

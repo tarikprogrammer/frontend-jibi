@@ -12,9 +12,9 @@ export class ShowClientComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.clients=this.service.allClients;
-    console.log(this.clients)
+
   }
 
 
+  protected readonly Object = Object;
 }

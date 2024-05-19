@@ -5,7 +5,8 @@ import {AuthAgentService} from "../services/authAgent/auth-agent.service";
 export const AuthGuard = ()=>{
   const auth=inject(AuthAgentService);
   const router=inject(Router)
-  if(!auth.isLogin){
+  const logged = sessionStorage.getItem('currentAgent');
+  if(logged==null){
     router.navigateByUrl('/login');
     return false;
   }

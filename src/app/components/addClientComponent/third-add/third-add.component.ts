@@ -20,6 +20,7 @@ export class ThirdAddComponent implements OnInit{
   ngOnInit(): void {
     this.thirdAdd=this.fb.group({
       file:[""],
+
     })
   }
   @Input() step: number = 3;
