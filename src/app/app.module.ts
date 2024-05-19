@@ -39,6 +39,8 @@ import { ThirdAddComponent } from './components/addClientComponent/third-add/thi
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ClientComponent } from './components/client/client.component';
+import {SlickCarouselModule} from "ngx-slick-carousel";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -80,24 +82,26 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecondAddComponent,
     ThirdAddComponent,
     AdminComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ClientComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    NgOptimizedImage,
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        FormsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        NgOptimizedImage,
+        SlickCarouselModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add this line

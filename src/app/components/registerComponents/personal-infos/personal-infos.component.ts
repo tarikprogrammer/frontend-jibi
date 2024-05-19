@@ -20,6 +20,8 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
   loader:boolean=false;
   passwordStatus:boolean=false;
   selectedFiles: any[] = [];
+  wrongPattente=false;
+  showPattenteError="votre numero de pattente n'est pas valide";
   constructor(private registerService:RegisterServiceService,private fb:FormBuilder,private http:HttpClient,private router:Router) {
   }
   @Input() step: number = 2;
@@ -79,7 +81,8 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
     })
     this.registerService.getAllData(this.mergeData);
     setTimeout(()=>{
-      this.registerService.sendData(this.mergeData).subscribe((response)=>{
+      this.registerService.sendData(this.mergeData).subscribe((response:any)=>{
+        if(response['id']!=null){
           console.log(response)
           this.agentCreated="your account has been created successfuly";
           this.isCreated=true;
@@ -87,6 +90,12 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
           this.loader=false;
           this.router.navigateByUrl("agent");
           sessionStorage.setItem('currentAgent',JSON.stringify(response));
+        }else{
+          this.wrongPattente=true;
+          this.loader=false;
+          console.log(response)
+        }
+
         },
         (error)=>{
           console.log("error");

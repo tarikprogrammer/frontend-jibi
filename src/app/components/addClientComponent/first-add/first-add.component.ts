@@ -16,7 +16,7 @@ export class FirstAddComponent implements OnInit{
       fname:this.fb.control(''),
       lname:this.fb.control(''),
       email:this.fb.control(''),
-      password:this.fb.control('')
+      gender:[""]
     })
   }
   @Input() step: number = 1;

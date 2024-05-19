@@ -14,6 +14,7 @@ import {ShowClientComponent} from "./components/agentComponent/show-client/show-
 import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
 import {AuthGuard} from "./guards/guard.guard";
 import {AgentComponent} from "./components/agent/agent.component";
+import {ClientComponent} from "./components/client/client.component";
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
       {path:'clients',component:ShowClientComponent},
       { path: 'login', component: LoginPageComponent }
     ]},
-  {path:'admin',component:AdminPageComponent}
+  {path:'admin',component:AdminPageComponent},
+  {path:'client',component:ClientComponent}
 
 ];
 
