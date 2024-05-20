@@ -1,0 +1,165 @@
+<div class="body">
+  <aside class="aside">
+    <div class="top">
+      <div class="logo">
+        <div class="img-admin">
+          <img src="../../assets/media/Mon_image.png">
+        </div>
+        <h3>Tarik<span>(client)</span></h3>
+      </div>
+      <span class="dismiss">
+            <i class="fa-solid fa-xmark"></i>
+      </span>
+    </div>
+    <div class="sidebare">
+      <h3 class="discover">
+        <i class="fas fa-compass"></i>
+        <a  (click)="setHome()">Discover</a>
+      </h3>
+      <h3>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a  (click)="isClick()"  routerLink="clients" >pay bills</a>
+      </h3>
+      <h3>
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <a  (click)="isClick()"  routerLink="clients" >open account</a>
+      </h3>
+      <h3>
+        <i class="fa-regular fa-user"></i>
+        <a  (click)="isClick()"  routerLink="profile" >Profile</a>
+      </h3>
+      <h3 class="logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <a (click)="logout()" >logout</a>
+      </h3>
+    </div>
+  </aside>
+  <aside class="small-view" *ngIf="isShow">
+    <div class="top">
+      <div class="logo">
+        <div class="img-admin">
+          <img src="../../assets/media/Mon_image.png">
+        </div>
+        <h3>Tarik<span>(client)</span></h3>
+      </div>
+      <span class="dismiss">
+            <i class="fa-solid fa-xmark"></i>
+      </span>
+    </div>
+    <div class="sidebare">
+      <h3 class="discover">
+        <i class="fas fa-compass"></i>
+        <a  (click)="setHome()">Discover</a>
+      </h3>
+      <h3>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a  (click)="isClick()"  routerLink="clients" >pay bills</a>
+      </h3>
+      <h3>
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <a  (click)="isClick()"  routerLink="clients" >open account</a>
+      </h3>
+      <h3>
+        <i class="fa-regular fa-user"></i>
+        <a  (click)="isClick()"  routerLink="profile" >Profile</a>
+      </h3>
+      <h3 class="logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <a (click)="logout()" >logout</a>
+      </h3>
+    </div>
+  </aside>
+  <div class="main" >
+    <nav>
+      <div class="search">
+        <i  (click)="showAside()" class="fa-solid fa-bars "></i>
+        <!-- <i  class="fa-solid fa-magnifying-glass"></i>
+         <input type="search" placeholder="search" >-->
+        <i  class="fa-solid fa-bars nav"></i>
+        <h5>Home</h5>
+      </div>
+      <div class="logo-picture">
+        <div class="notify">
+          <i (click)="setProfile()" class="fa-regular fa-bell"></i>
+          <span *ngIf="!agentService.isChangedPass"></span>
+        </div>
+        <!-- notification toast-->
+        <div *ngIf="isChangePass" (click)="changePassword()" class="toast max-w-xs   rounded-xl shadow-lg " role="alert">
+          <div class="flex p-4">
+            <div class="flex-shrink-0">
+              <svg class="flex-shrink-0 size-4 text-yellow-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+              </svg>
+            </div>
+            <div class="ms-3">
+              <p class="text-sm text-gray-700 dark:text-neutral-400">
+                change your password
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="name">
+          <p>Hey,<strong><!--{{getSession().username}}--></strong></p>
+          <small>Agent</small>
+        </div>
+        <div class="img" >
+         <!-- <img [src]="coverPath+getSession().imageUrl">-->
+        </div>
+      </div>
+    </nav>
+    <div *ngIf="!linkClick">
+      <router-outlet ></router-outlet>
+    </div>
+    <div class="services" *ngIf="linkClick">
+      <div class="dispo c1">
+        <h2>
+          <span><i class="fas fa-headset"></i></span>
+          50000DH
+        </h2>
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+      <div class="dispo c1">
+        <h2>
+          <span><i class="fas fa-headset"></i></span>
+          50000DH
+        </h2>
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+      <div class="dispo c1">
+        <h2>
+          <span><i class="fas fa-headset"></i></span>
+          50000DH
+        </h2>
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+    </div>
+    <div class="client-added" *ngIf="linkClick" >
+        <div class="graph-1">
+          <div class="header">
+            <h1><span><i class="fa-solid fa-tent-arrow-left-right"></i></span>latest transactions</h1>
+          </div>
+          <div class="main">
+
+          </div>
+        </div>
+      <div class="graph-2">
+        <div class="header">
+          <h1><span><i class="fa-solid fa-users"></i></span>discover account</h1>
+        </div>
+        <ngx-slick-carousel class="test" [config]="slideConfig">
+          <div ngxSlickItem class="compte">
+            <img src="../../assets/media/carousel-1.jpg">
+          </div>
+          <div ngxSlickItem class="compte">
+            <img src="../../assets/media/carousel-4.jpg">
+          </div>
+          <div ngxSlickItem class="compte">
+            <img src="../../assets/media/carousel-3.jpg">
+          </div>
+          <!-- Ajoutez d'autres diapositives au besoin -->
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
