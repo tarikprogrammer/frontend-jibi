@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <span><i class="fa-solid fa-paperclip"></i></span>
+      <h2>effectuer un paiement</h2>
+    </div>
+  </div>
+  <div class="container-content">
+    <div class="logoCreancier">
+      <img [src]="imageCreancier+currentCreancier[0].logoCreancier" alt="redal's logo">
+    </div>
+    <div class="categories">
+      <h1>Effectuer le paiement de facture de :</h1>
+      <div class="content-categories">
+        <ul>
+          <li *ngFor="let d of currentCreancier[0].creanceEntities"><a (click)="setCeance(d.creance)">{{d.creance}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" (click)="retour()">⭠ retour</button>
+    </div>
+  </div>
+
+</div>

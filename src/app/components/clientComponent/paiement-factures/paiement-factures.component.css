@@ -1,0 +1,72 @@
+.container{
+  background-color:#3d0466;
+  width: 100%;
+  height: 440px;
+  position: relative;
+}
+.header{
+  background-color:#6420AA;
+  color: #ffffff;
+  margin-bottom: 30px;
+  z-index: 777;
+  font-size: 17px;
+  padding: 10px;
+}
+.header div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.container-content{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  align-items: center;
+  width: 97%;
+  margin:20px auto ;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%,-50%);
+  background-color: rgba(255, 255, 255, 1);
+  height: 80%;
+}
+.logoCreancier img{
+  width: 280px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.form div {
+  margin-top: 20px;
+}
+input{
+  outline: none;
+  width: 100%;
+  border-radius: 10px;
+}
+.buttons{
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+  position: relative;
+}
+button{
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 8px 26px;
+  border-radius: 10px;
+}
+.valider{
+  background-color: #F47E17;
+  color: #ffffff;
+  border-color: transparent;
+
+}
+.valider i{
+  padding: 0px 18px;
+}
+select {
+  width: 100%;
+  border-radius: 10px;
+}

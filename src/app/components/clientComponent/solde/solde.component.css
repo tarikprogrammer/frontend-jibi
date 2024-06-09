@@ -1,0 +1,68 @@
+.container{
+  width: 70%;
+  height: 350px;
+  /*background-color: white;*/
+  background-color:#3d0466;
+  border-radius: 10px;
+  margin:30px auto;
+  overflow:scroll;
+  position: relative;
+  font-family: sans-serif;
+
+}
+.header{
+  background-color:#6420AA;
+  color: #ffffff;
+  margin-bottom: 30px;
+  z-index: 777;
+  font-size: 17px;
+  padding: 10px;
+}
+.header h1 {
+  font-size: 20px;
+
+}
+.header h1 span{
+  margin-right: 20px;
+}
+.content{
+  padding: 20px;
+
+}
+.content h1{
+  font-size: 25px;
+  color: #ffffff;
+  padding-bottom: 20px;
+}
+.content h1 span{
+  color: #F47E17;
+}
+.account{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+}
+.account-content{
+  background-color: #6420AA;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.account-header{
+  background-color:#07c870;
+  color: white;
+  padding: 15px;
+}
+.account-header p{
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight:700;
+  font-style: italic;
+}
+.account-c{
+  padding: 20px;
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: uppercase;
+
+}

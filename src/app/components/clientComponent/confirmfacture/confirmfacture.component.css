@@ -1,0 +1,84 @@
+.container{
+  background-color:#3d0466;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+.header{
+  background-color:#6420AA;
+  color: #ffffff;
+  margin-bottom:  20px;
+  z-index: 777;
+  font-size: 17px;
+  padding: 10px;
+}
+.header div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.content{
+  position: relative;
+  width: 97%;
+  margin: 5px auto 0px;
+}
+.enfin{
+  margin-top: 40px;
+}
+.enfin h1{
+  color: #07c870;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+p{
+  text-align: right;
+  color: #07c870;
+  font-weight: 700;
+}
+p span{
+  margin-left: 70px;
+}
+.button{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+button{
+  background-color: #F47E17;
+  color: #ffffff;
+  padding: 8px 13px;
+  border: 1px solid transparent;
+  border-left: none;
+}
+.annuler{
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-right: none;
+}
+td img{
+  width: 70px;
+  object-fit: cover;
+}
+.valider i{
+  display: inline-block;
+  width: 145px;
+}
+
+::ng-deep .swal2-popup {
+  margin-left: 100px;
+  width: 340px !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .custom-swal-title {
+  font-size: 14px !important;
+  color: #07c870 !important;
+}
+::ng-deep .custom-swal-title-error{
+  font-size: 14px !important;
+  color: red !important;
+}

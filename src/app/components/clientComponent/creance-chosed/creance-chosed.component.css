@@ -1,0 +1,81 @@
+.container{
+  background-color:#3d0466;
+  width: 100%;
+  height: 440px;
+  position: relative;
+}
+.header{
+  background-color:#6420AA;
+  color: #ffffff;
+  margin-bottom: 30px;
+  z-index: 777;
+  font-size: 17px;
+  padding: 10px;
+}
+.header div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.container-content{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  align-items: center;
+  width: 97%;
+  margin:20px auto ;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%,-50%);
+  background-color: rgba(255, 255, 255, 1);
+  height: 80%;
+}
+.logoCreancier img{
+  width: 280px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.categories{
+  width: 100%;
+  position: relative;
+  top: -40px;
+}
+.categories h1{
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  color: crimson;
+  margin-bottom: 20px;
+}
+.categories .content-categories{
+  margin-left: 100px;
+}
+li{
+  list-style: disc;
+  padding-bottom: 10px;
+}
+
+a:hover{
+  color: blue;
+  text-decoration:underline blue ;
+  cursor: pointer;
+}
+.buttons{
+
+  position: absolute;
+  bottom:70px;
+  right: 70px;
+}
+
+button{
+  background-color: #F47E17;
+  padding: 8px 26px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+button:hover{
+  background-color: #d56b10;
+}

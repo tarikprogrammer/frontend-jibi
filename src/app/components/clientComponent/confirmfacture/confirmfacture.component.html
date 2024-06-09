@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <span><i class="fa-solid fa-paperclip"></i></span>
+      <h2>paiement de factures</h2>
+    </div>
+  </div>
+  <div class="content">
+    <div class="custom-swal-container" ></div>
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div class=" rounded-lg ">
+            <table class="min-w-full ">
+              <thead class="bg-white ">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">logo</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">créancier</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">créance</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">client</th>
+              </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                  <img [src]="imageCreancier+creancierServices.creancierPaiement.logoCreancier" alt="image de creancier">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                  {{creancierServices.creancierPaiement.logoName}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                  {{creancierServices.creancierPaiement.creance}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                  {{getSession().fname}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <div class="enfin">
+      <h1>Recapitulatif des informations saisies</h1>
+      <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div class=" rounded-lg ">
+            <table class="min-w-full ">
+              <thead class="bg-amber-600 ">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-start  text-xs font-medium  uppercase text-pink-700">reference</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">créancier</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">frais</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium  uppercase text-pink-700">montant</th>
+              </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                  {{creancierServices.creancierPaiement.ref}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 ">
+                  {{creancierServices.creancierPaiement.logoName}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                  {{creancierServices.creancierPaiement.impayes}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                  {{creancierServices.creancierPaiement.solde+"DH"}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      <p>Total:<span>{{total +"DH"}}</span></p>
+      <div class="button">
+       <button class="annuler" (click)="annuler()">Abondonner</button>
+        <button (click)="confirmer()" class="valider">
+          <i *ngIf="isClick" class="fa fa-refresh fa-spin"></i><span *ngIf="!isClick">Confirmer et suivre</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <span><i class="fa-solid fa-paperclip"></i></span>
+      <h2>effectuer un paiement</h2>
+    </div>
+  </div>
+  <div class="container-content">
+    <div class="logoCreancier">
+      <img [src]="imageCreancier+currentCreancier.logoCreancier" alt="redal's logo">
+    </div>
+    <div class="form" [formGroup]="paiementForm">
+      <div>
+        <input type="text" [disabled]="true" [value]="currentCreancier.creance">
+      </div>
+      <div *ngIf="recharchePaiement">
+        <select (change)="phoneNumber($event)" *ngIf="!inputShow">
+          <option value="" [hidden]="true">Entrer le numero de telephone</option>
+          <option value="mon numero de telephone">mon numero de telephone</option>
+          <option value="un autre numero de telephone">un autre numero de telephone</option>
+        </select>
+        <input type="text" required *ngIf="inputShow"   [value]="isMyPhone?getSession().phone:''" placeholder="entrer un autre numero">
+      </div>
+      <div *ngIf="electricity">
+        <input type="text" required [disabled]="true"  [value]="currentCreancier.ref">
+      </div>
+      <div *ngIf="donation">
+        <input type="text" required   placeholder="entrer votre nom et prenom">
+      </div>
+      <div *ngIf="electricity || recharchePaiement">
+        <input type="text" placeholder="montant en DH" formControlName="solde">
+      </div>
+      <div *ngIf="donation">
+        <input type="text" placeholder="montant de donation" formControlName="solde">
+      </div>
+      <div class="buttons">
+        <button type="submit" (click)="annuler()" >annuler</button>
+        <button type="submit" class="valider" (click)="valider()" [disabled]="(!(paiementForm.get('solde')?.value))" [ngStyle]="{'background-color':(!(paiementForm.get('solde')?.value))?'#686D76':''}">
+          <i *ngIf="isClick" class="fa fa-refresh fa-spin"></i> <span *ngIf="!isClick">valider</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

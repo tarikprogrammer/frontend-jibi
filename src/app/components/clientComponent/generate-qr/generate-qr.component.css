@@ -1,0 +1,13 @@
+.qrCode{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+img {
+  width: 200px;
+  height: 230px;
+  object-fit: cover
+;
+}

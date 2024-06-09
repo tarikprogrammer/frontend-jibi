@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="header">
+    <div>
+      <h1><span><i class="fa-solid fa-wallet"></i></span>solde</h1>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Hey, <span>{{getSession().fname}}</span></h1>
+    <div class="account">
+      <div class="account-content">
+        <div class="account-header">
+          <p>type de compte</p>
+        </div>
+          <div class="account-c">
+            <span>{{account.account.accountType}}</span>
+          </div>
+      </div>
+      <div class="account-content">
+        <div class="account-header">
+          <p>solde actuel</p>
+        </div>
+          <div class="account-c">
+            <span>{{account.account.solde | number:'1.0-1'}} DH</span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>

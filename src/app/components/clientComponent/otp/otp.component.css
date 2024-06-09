@@ -1,0 +1,32 @@
+.container{
+  background-color:#3d0466;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+.header{
+  background-color:#6420AA;
+  color: #ffffff;
+  margin-bottom:  20px;
+  z-index: 777;
+  font-size: 17px;
+  padding: 10px;
+}
+.header div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.content{
+  position: relative;
+  width: 97%;
+  height: 250px;
+  margin: 80px auto 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+

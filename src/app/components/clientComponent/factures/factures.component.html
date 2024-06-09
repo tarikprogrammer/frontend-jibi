@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="header" *ngIf="!creancierService.showPaiement">
+    <button  [ngStyle]="{'background-color':!creancierService.showRouter?'white':'transparent','color':!creancierService.showRouter?'black':'white'}" (click)="setHome()" routerLink="factures" class="liste">Liste des Créanciers</button>
+    <button  [ngStyle]="{'background-color':creancierService.showRouter?'white':'transparent','color':creancierService.showRouter?'black':'white'}" (click)="setHistorique()" routerLink="historiques" >Historiques</button>
+  </div>
+  <div class="main" *ngIf="!creancierService.showRouter">
+   <select name="categorie" (change)="filterByCategory($event)">
+     <option value="all">ALL</option>
+     <option value="IAM">IAM</option>
+     <option value="REDAL">REDAL</option>
+     <option value="AMENDIS">AMENDIS</option>
+     <option value="ALCS">ALCS</option>
+   </select>
+    <div class="cat">
+      <div class="cat-content" *ngFor="let creancier of creancierService.listCeanciers" (click)="setFactures(creancier.creancier_id)" >
+       <div class="img">
+         <img [src]="imageCreancier+creancier.logoCreancier" alt="maroc telecom logo">
+       </div>
+        <div >
+          <h3>{{creancier.logoName}}</h3>
+          <div *ngFor="let des of creancier.creanceEntities">
+            <h4 >{{des.creance}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="creancierService.showRouter">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

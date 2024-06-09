@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 *ngIf="false">pas de historiques</h1>
+  <div class="transaction-historiques">
+    <div class="transactions" *ngFor="let  hist of Object.values(listofTransaction)">
+      <div class="transaction-historique">
+        <div class="icon">
+          <i class="fa-solid fa-money-check"></i>
+        </div>
+        <div class="conetent-transaction benificaire">
+          <h1>client</h1>
+          <h3>{{hist.fname}}</h3>
+        </div>
+        <div class="conetent-transaction">
+          <h1>{{hist.facturePaye}}</h1>
+          <h3>{{hist.date}}</h3>
+        </div>
+      </div>
+      <div class="montant-transcation">
+        <h1>{{hist.montant +"DH"}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
