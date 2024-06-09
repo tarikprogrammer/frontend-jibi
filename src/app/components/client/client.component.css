@@ -27,7 +27,7 @@ aside{
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .logo{
   display: flex;
@@ -59,10 +59,11 @@ aside{
 .sidebare h3{
   font-size:15px;
   display: flex;
+  text-wrap: nowrap;
   gap: 10px;
   align-items: center;
-  padding: 10px 0px 10px 20px;
-  width: 160px;
+  padding: 10px 20px 10px 20px;
+  width: 170px;
   border-radius: 10px;
   transition: all .6s ease-in-out;
   cursor: pointer;
@@ -79,16 +80,49 @@ aside{
 }
 .logout{
   position: absolute;
-  bottom: 40px;
+  bottom: 10px;
   background-color: red;
 }
 
 .logout:hover{
   background-color: #bf2121;
 }
-.main{
-}
+.main-transaction{
+ padding: 10px;
 
+
+}
+.transactions{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#6420AA;
+  color: #ffffff;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+.transaction-historique{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.conetent-transaction h1{
+  font-size:14px;
+  color: #F47E17;
+  font-weight: bold;
+}
+.conetent-transaction h3{
+  font-size:12px;
+  color: #408E91;
+}
+.icon i{
+  display: inline-block;
+  font-size: 20px;
+}
+.montant-transcation h1{
+  font-weight: bold;
+}
 .main nav{
   background-color:#3d0466;
   padding: 10px;
@@ -141,6 +175,7 @@ aside{
 
 .img{
   position: relative;
+  cursor: pointer;
 }
 .img::before{
   content: "";
@@ -149,6 +184,35 @@ aside{
   height: 100%;
   border: 2px solid #65B741;
   border-radius: 50%;
+}
+.editer-profile{
+  background-color: #6420AA;
+  width: 180px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  z-index: 333;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+.editer-profile div {
+  margin-left: 6px;
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+.editer-profile a{
+  font-size: 14px;
+
+}
+.editer-profile div:hover{
+  color:#F47E17;
+  text-decoration: underline #F47E17;
 }
 .services{
   margin:30px 10px 10px;
@@ -197,21 +261,31 @@ aside{
 .c1{
   background-image: linear-gradient(to right,#535ddc,#6065c9,#6869ba,#706cb3);
   color: #ffffff;
+  font-style: italic;
+  text-transform: uppercase;
 
 }
 .c2{
   background-image: linear-gradient(to right,#F47E17, #ea8f43);
   color: #ffffff;
   position: relative;
+  text-transform: uppercase;
+  font-style: italic;
 }
 .c3{
   background-image: linear-gradient(to right,#1c4c5b, #5a93a6);
   color: #ffffff;
+  text-transform: uppercase;
+  font-style: italic;
+
 }
 .c4{
   background-image: linear-gradient(to right,#3d0466, #895baf);
   color: #ffffff;
+  text-transform: uppercase;
+  font-style: italic;
 }
+
 .dispo h2{
   width: 100%;
   position: absolute;
@@ -292,6 +366,23 @@ aside{
   transform: translate(-50%,-50%);
   border-radius: 50%;
 }
+.dispo h2{
+  position: relative;
+}
+.dispo h2 .reduction{
+  position: absolute;
+  /*bottom: -20px;
+  right: 5px;*/
+  top: 8px;
+  right: -12px;
+  font-family: sans-serif;
+  font-weight: 800;
+  background-color: transparent;
+}
+.reduction img{
+  width: 40px;
+
+}
 .logo-table{
   width: 40px;
   height: 40px;
@@ -299,20 +390,21 @@ aside{
 }
 .graph-1{
   background-color:#5b0494;
-  padding: 10px;
+ /* padding: 10px;*/
   border-radius: 10px;
   text-align: center;
   width: 100%;
   height: 310px;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 .graph-1 .header{
-  position: absolute;
+  position: sticky;
   width: 100%;
   top: 0;
   left: 0;
-  padding: 10px;
+  padding: 15px;
+ /* z-index: 11111;*/
   background-color: #52087c;
 }
 .graph-1 .header h1{
@@ -320,6 +412,7 @@ aside{
   display: flex;
   align-items: center;
   gap: 40px;
+  text-transform: uppercase;
 
 }
 .graph-1 .header h1 span i{
@@ -387,6 +480,7 @@ aside{
   display: flex;
   align-items: center;
   gap: 40px;
+  text-transform: uppercase;
 }
 .graph-2{
   background-color:#5b0494;
@@ -424,7 +518,8 @@ aside{
   transform: translateY(50px);
   right: 100px;
   cursor: pointer;
-  background-color:#3d0466;
+  background-color:orangered;
+  color: #ffffff;
 }
 .small-view {
   position: absolute;

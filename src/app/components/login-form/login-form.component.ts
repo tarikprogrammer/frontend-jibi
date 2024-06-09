@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit{
     this.authAgent=this.fb.group({
       phone:this.fb.control(''),
       password:this.fb.control(''),
-      logintype:['admin']
+      logintype:['agent']
     })
 
 
@@ -46,6 +46,7 @@ export class LoginFormComponent implements OnInit{
       setTimeout(() => {
         this.auth.sendData().subscribe((response: any) => {
             this.loader = false;
+            console.log(response)
             if (response['id'] == null) {
               this.messageAgent = "you're not a agent !!";
               this.showMessage = true;
@@ -70,6 +71,7 @@ export class LoginFormComponent implements OnInit{
         this.authC.sendData().subscribe((response:any)=>{
           this.loader = false;
           if (response['id'] == null) {
+            console.log(response)
             this.messageAgent = "you're not a client !!";
             this.showMessage = true;
             setTimeout(() => {
@@ -78,8 +80,10 @@ export class LoginFormComponent implements OnInit{
           }
           if (response['id'] != null) {
            /* this.auth.getAgentCurrent(response);*/
+            console.log(response)
             this.auth.isLogin = true;
-            sessionStorage.setItem('currentClient', JSON.stringify(response));
+            sessionStorage.setItem('currentClient',JSON.stringify(response));
+
             this.router.navigateByUrl("/client")
           }
 

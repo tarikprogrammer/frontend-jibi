@@ -12,9 +12,20 @@ import {AddClientComponent} from "./components/agentComponent/add-client/add-cli
 import {UpdateProfileComponent} from "./components/agentComponent/update-profile/update-profile.component";
 import {ShowClientComponent} from "./components/agentComponent/show-client/show-client.component";
 import {AdminPageComponent} from "./pages/admin-page/admin-page.component";
-import {AuthGuard} from "./guards/guard.guard";
+import {AuthGuard, AuthGuardClient} from "./guards/guard.guard";
 import {AgentComponent} from "./components/agent/agent.component";
 import {ClientComponent} from "./components/client/client.component";
+import {FacturesComponent} from "./components/clientComponent/factures/factures.component";
+import {HistoriqueComponent} from "./components/clientComponent/historique/historique.component";
+import {PaiementFacturesComponent} from "./components/clientComponent/paiement-factures/paiement-factures.component";
+import {ClientProfileComponent} from "./components/clientComponent/client-profile/client-profile.component";
+import {UpdatePasswordComponent} from "./components/clientComponent/update-password/update-password.component";
+import {SoldeComponent} from "./components/clientComponent/solde/solde.component";
+import {ConfirmfactureComponent} from "./components/clientComponent/confirmfacture/confirmfacture.component";
+import {OtpComponent} from "./components/clientComponent/otp/otp.component";
+import {CreanceChosedComponent} from "./components/clientComponent/creance-chosed/creance-chosed.component";
+import {TransactionComponent} from "./components/clientComponent/transaction/transaction.component";
+import {GenerateQrComponent} from "./components/clientComponent/generate-qr/generate-qr.component";
 
 
 const routes: Routes = [
@@ -32,7 +43,26 @@ const routes: Routes = [
       { path: 'login', component: LoginPageComponent }
     ]},
   {path:'admin',component:AdminPageComponent},
-  {path:'client',component:ClientComponent}
+  {path:'client',component:ClientComponent,canActivate:[AuthGuardClient],children:[{
+    path:'factures',component: FacturesComponent,children:[
+        {path:'historiques',component: HistoriqueComponent},
+        {path:'factures',component: FacturesComponent},
+        {path:'paiement',component:PaiementFacturesComponent},
+        {path:'confirm',component:ConfirmfactureComponent},
+        {path:'otp',component:OtpComponent},
+        {path:'creance',component:CreanceChosedComponent},
+
+      ]
+
+    },
+      {path:'profile',component:ClientProfileComponent },
+      {path:'update-password',component:UpdatePasswordComponent },
+      {path:'solde',component:SoldeComponent},
+      {path:'transaction',component:TransactionComponent},
+      {path:'generateQr',component:GenerateQrComponent}
+
+
+    ]},
 
 ];
 

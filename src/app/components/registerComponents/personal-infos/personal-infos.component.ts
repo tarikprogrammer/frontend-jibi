@@ -83,7 +83,7 @@ export class PersonalInfosComponent implements OnInit,AfterViewInit{
     setTimeout(()=>{
       this.registerService.sendData(this.mergeData).subscribe((response:any)=>{
         if(response['id']!=null){
-          console.log(response)
+          console.log("regisetr",response)
           this.agentCreated="your account has been created successfuly";
           this.isCreated=true;
           this.showToast=true;

@@ -49,8 +49,6 @@ export class ProfileComponent implements OnInit{
     if (files && files.length) {
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-
-        console.log(file['name']);
         this.profile.get('imageUrl')?.setValue(file['name'])
         const format = new FormData();
         /*console.log(file[i].name)*/

@@ -61,7 +61,7 @@
       </h3>
       <h3 class="logout">
         <i class="fa-solid fa-right-from-bracket"></i>
-        <a href="#" class="link-logout" >logout</a>
+        <a (click)="logout()" class="link-logout" >logout</a>
       </h3>
     </div>
   </aside>
@@ -75,9 +75,10 @@
         <h5>Home</h5>
       </div>
       <div class="logo-picture">
+
         <div class="notify">
           <i (click)="setProfile()" class="fa-regular fa-bell"></i>
-          <span *ngIf="!agentService.isChangedPass"></span>
+          <span *ngIf="!getSessionUpdatePass()"></span>
         </div>
         <!-- notification toast-->
         <div *ngIf="isChangePass" (click)="changePassword()" class="toast max-w-xs   rounded-xl shadow-lg " role="alert">
@@ -88,7 +89,7 @@
               </svg>
             </div>
             <div class="ms-3">
-              <p class="text-sm text-gray-700 dark:text-neutral-400">
+              <p class="text-sm ">
                 change your password
               </p>
             </div>
@@ -141,10 +142,18 @@
             <div class="header">
              <h1><span><i class="fa-solid fa-users"></i></span>last customers</h1>
             </div>
-            <div class="garph-clients">
-
-
-            </div>
+              <ngx-slick-carousel class="test" [config]="slideConfig">
+                <div ngxSlickItem class="compte">
+                  <img src="../../assets/media/carousel-1.jpg">
+                </div>
+                <div ngxSlickItem class="compte">
+                  <img src="../../assets/media/carousel-7.jpg">
+                </div>
+                <div ngxSlickItem class="compte">
+                  <img src="../../assets/media/carousel-3.jpg">
+                </div>
+                <!-- Ajoutez d'autres diapositives au besoin -->
+              </ngx-slick-carousel>
         </div>
         <div class="graph-1">
           <div class="header">

@@ -6,9 +6,9 @@
     </div>
     <div class="grid  grid-cols-1 sm:grid-cols-2 gap-6">
       <div>
-        <label  class="block text-sm font-medium leading-5 text-gray-700">CIN</label>
+        <label  class="block text-sm font-medium leading-5 text-gray-700">Nationality</label>
         <div class="mt-2">
-          <select  name="nationalite" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BA3339] sm:text-sm sm:leading-6">
+          <select  name="nationalite" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BA3339] sm:text-sm sm:leading-6" formControlName="nationality">
             <option value="Morocco" selected>Morocco</option>
             <option value="Canada">Canada</option>
             <option value="USA">USA</option>
@@ -20,10 +20,10 @@
       <div>
         <label  class="block text-sm font-medium leading-5 text-gray-700">Sélectionnez un produit</label>
         <div class="mt-2">
-          <select   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BA3339] sm:text-sm sm:leading-6">
-            <option value="200DH" selected>Hssab 1-Plafond:200DH</option>
-            <option value="5000DH">Hssab 2-Plafond:5000DH</option>
-            <option value="20000DH">Hssab 3-Plafond:20000DH</option>
+          <select   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#BA3339] sm:text-sm sm:leading-6" name="accounttype" formControlName="accountType">
+            <option value="account de 200DH" selected>Hssab 1-Plafond:200DH</option>
+            <option value="account de 5000DH">Hssab 2-Plafond:5000DH</option>
+            <option value="account de 20000DH">Hssab 3-Plafond:20000DH</option>
           </select>
         </div>
       </div>

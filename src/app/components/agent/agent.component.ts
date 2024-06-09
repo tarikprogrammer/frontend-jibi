@@ -14,24 +14,45 @@ export class AgentComponent implements OnInit,AfterViewInit{
   coverPath:string="../../assets/images/";
   notificationAgent:string="";
   isChangePass=false;
+  isPassUpadeted=true;
   currentAgent=sessionStorage.getItem('currentAgent');
-
+  updatePass=sessionStorage.getItem(this.getSession().username);
+  slideConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 2000
+  };
   constructor(private router:Router,public agentService:AuthAgentService) {
   }
   ngOnInit(): void {
-    this.setHome();
-    this.coverPath=this.coverPath+this.getSession().imageUrl;
 
 
   }
   ngAfterViewInit(): void {
     this.notificationAgent="change your password";
       this.createChartjs1();
-      this.createChartjs2();
+    const audio = new Audio("../../assets/audio/notification.mp3");
+    setTimeout(()=>{
+      if(!this.getSessionUpdatePass()){
+        this.isChangePass=true;
+
+      }
+
+     /* audio.play();*/
+    },3000)
+    setTimeout(()=>{
+      this.isChangePass=false
+    },10000)
 
   }
   getSession(){
     return this.currentAgent ? JSON.parse(this.currentAgent):null
+  }
+  getSessionUpdatePass(){
+    return this.updatePass ? JSON.parse(this.updatePass):null
   }
 
 
@@ -69,45 +90,7 @@ export class AgentComponent implements OnInit,AfterViewInit{
       }
     });
   }
-  createChartjs2(){
-    const chart1 = new Chart("chart", {
-      type: 'bar',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)',
 
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
   showAside() {
     this.isShow=true;
 
@@ -130,10 +113,9 @@ export class AgentComponent implements OnInit,AfterViewInit{
 
   setHome() {
     this.linkClick=true;
-    setTimeout(()=>{
-      this.router.navigateByUrl('/agent');
-    },1000)
     this.ngAfterViewInit();
+    window.location.reload()
+
 
   }
 

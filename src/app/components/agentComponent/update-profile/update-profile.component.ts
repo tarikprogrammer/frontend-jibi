@@ -33,10 +33,12 @@ export class UpdateProfileComponent implements OnInit{
      this.isLoader=false;
      this.serviceAgent.sendUpdatePass().subscribe((response)=>{
        if(response==true){
+         sessionStorage.setItem(this.getSession().username,'true');
          this.isChangedPass=true;
          this.serviceAgent.isChangedPass=this.isChangedPass;
          setTimeout(()=>{
            this.changePass="";
+           window.location.reload();
          },3000)
        }
      },(error)=>{
@@ -44,4 +46,6 @@ export class UpdateProfileComponent implements OnInit{
      })
    },2000)
   }
+
+
 }

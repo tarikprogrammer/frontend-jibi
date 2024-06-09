@@ -13,3 +13,12 @@ export const AuthGuard = ()=>{
   return true;
 
 }
+export const AuthGuardClient=()=>{
+  const router=inject(Router)
+  const logged =sessionStorage.getItem('currentClient');
+  if(logged==null){
+    router.navigateByUrl('/login')
+    return false;
+  }
+  return true;
+}

@@ -41,9 +41,25 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import {NgOptimizedImage} from "@angular/common";
 import { ClientComponent } from './components/client/client.component';
 import {SlickCarouselModule} from "ngx-slick-carousel";
+import { FacturesComponent } from './components/clientComponent/factures/factures.component';
+import { HistoriqueComponent } from './components/clientComponent/historique/historique.component';
+import { PaiementFacturesComponent } from './components/clientComponent/paiement-factures/paiement-factures.component';
+import { ClientProfileComponent } from './components/clientComponent/client-profile/client-profile.component';
+import { UpdatePasswordComponent } from './components/clientComponent/update-password/update-password.component';
+import { SoldeComponent } from './components/clientComponent/solde/solde.component';
+import { ConfirmfactureComponent } from './components/clientComponent/confirmfacture/confirmfacture.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CountdownModule } from 'ngx-countdown';
+import { OtpComponent } from './components/clientComponent/otp/otp.component';
+import { CreanceChosedComponent } from './components/clientComponent/creance-chosed/creance-chosed.component';
+import { TransactionComponent } from './components/clientComponent/transaction/transaction.component';
+import { GenerateQrComponent } from './components/clientComponent/generate-qr/generate-qr.component';
+import { QrCodeModule } from 'ng-qrcode';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
 }
 
 
@@ -83,7 +99,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     ThirdAddComponent,
     AdminComponent,
     AdminPageComponent,
-    ClientComponent
+    ClientComponent,
+    FacturesComponent,
+    HistoriqueComponent,
+    PaiementFacturesComponent,
+    ClientProfileComponent,
+    UpdatePasswordComponent,
+    SoldeComponent,
+    ConfirmfactureComponent,
+    OtpComponent,
+    CreanceChosedComponent,
+    TransactionComponent,
+    GenerateQrComponent
   ],
     imports: [
         BrowserModule,
@@ -91,6 +118,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ReactiveFormsModule,
         AppRoutingModule,
         FormsModule,
+        QrCodeModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -100,6 +128,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         }),
         NgOptimizedImage,
         SlickCarouselModule,
+       SweetAlert2Module.forRoot(),
+
 
     ],
   providers: [],

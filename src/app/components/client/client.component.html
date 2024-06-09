@@ -3,9 +3,13 @@
     <div class="top">
       <div class="logo">
         <div class="img-admin">
-          <img src="../../assets/media/Mon_image.png">
+          <!--<img src="../../assets/media/Mon_image.png">-->
+          <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path *ngIf="!getSession().cover" fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+            <image *ngIf="getSession().cover" [attr.xlink:href]="coverPath+getSession().cover"   x="0" y="0" width="24" height="24" class="rounded-full" />
+          </svg>
         </div>
-        <h3>Tarik<span>(client)</span></h3>
+        <h3>{{getSession().fname}}<span>(client)</span></h3>
       </div>
       <span class="dismiss">
             <i class="fa-solid fa-xmark"></i>
@@ -18,15 +22,15 @@
       </h3>
       <h3>
         <i class="fa-solid fa-cart-shopping"></i>
-        <a  (click)="isClick()"  routerLink="clients" >pay bills</a>
+        <a  (click)="setFactures()"  >pay bills</a>
       </h3>
       <h3>
-        <i class="fa-solid fa-file-invoice-dollar"></i>
-        <a  (click)="isClick()"  routerLink="clients" >open account</a>
+        <i class="fa-solid fa-eye"></i>
+        <a  (click)="setSolde()"  >solde</a>
       </h3>
-      <h3>
-        <i class="fa-regular fa-user"></i>
-        <a  (click)="isClick()"  routerLink="profile" >Profile</a>
+      <h3 style="text-wrap: nowrap">
+        <i class="fa-solid fa-paper-plane"></i>
+        <a  (click)="sendMoney()" >send money</a>
       </h3>
       <h3 class="logout">
         <i class="fa-solid fa-right-from-bracket"></i>
@@ -53,15 +57,15 @@
       </h3>
       <h3>
         <i class="fa-solid fa-cart-shopping"></i>
-        <a  (click)="isClick()"  routerLink="clients" >pay bills</a>
+        <a  (click)="setFactures()"   >pay bills</a>
       </h3>
       <h3>
-        <i class="fa-solid fa-file-invoice-dollar"></i>
-        <a  (click)="isClick()"  routerLink="clients" >open account</a>
+        <i class="fa-solid fa-paper-plane"></i>
+        <a  (click)="sendMoney()"  >send money</a>
       </h3>
       <h3>
-        <i class="fa-regular fa-user"></i>
-        <a  (click)="isClick()"  routerLink="profile" >Profile</a>
+      <i class="fa-solid fa-eye"></i>
+      <a  (click)="setSolde()"  >solde</a>
       </h3>
       <h3 class="logout">
         <i class="fa-solid fa-right-from-bracket"></i>
@@ -73,18 +77,16 @@
     <nav>
       <div class="search">
         <i  (click)="showAside()" class="fa-solid fa-bars "></i>
-        <!-- <i  class="fa-solid fa-magnifying-glass"></i>
-         <input type="search" placeholder="search" >-->
         <i  class="fa-solid fa-bars nav"></i>
         <h5>Home</h5>
       </div>
       <div class="logo-picture">
         <div class="notify">
           <i (click)="setProfile()" class="fa-regular fa-bell"></i>
-          <span *ngIf="!agentService.isChangedPass"></span>
+          <span *ngIf="!getSessionUpdatePass()"></span>
         </div>
         <!-- notification toast-->
-        <div *ngIf="isChangePass" (click)="changePassword()" class="toast max-w-xs   rounded-xl shadow-lg " role="alert">
+        <div *ngIf="isChangePass" (click)="setProfile()" class="toast max-w-xs   rounded-xl shadow-lg " role="alert">
           <div class="flex p-4">
             <div class="flex-shrink-0">
               <svg class="flex-shrink-0 size-4 text-yellow-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -92,55 +94,92 @@
               </svg>
             </div>
             <div class="ms-3">
-              <p class="text-sm text-gray-700 dark:text-neutral-400">
+              <p class="text-sm ">
                 change your password
               </p>
             </div>
           </div>
         </div>
         <div class="name">
-          <p>Hey,<strong><!--{{getSession().username}}--></strong></p>
-          <small>Agent</small>
+          <p>Hey,<strong> {{getSession().fname}}</strong></p>
+          <small>client</small>
         </div>
-        <div class="img" >
+        <div class="img" (click)="changerProfile()">
+          <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path *ngIf="!getSession().cover" fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+            <image *ngIf="getSession().cover" [attr.xlink:href]="coverPath+getSession().cover"   x="0" y="0" width="24" height="24" class="rounded-full" />
+          </svg>
          <!-- <img [src]="coverPath+getSession().imageUrl">-->
+          <div class="editer-profile" *ngIf="changeCover" >
+            <div>
+              <span><i class="fa-solid fa-user"></i></span>
+              <a (click)="goToProfile()">edit your profile</a>
+            </div>
+            <div>
+              <span><i class="fa-solid fa-gear"></i></span>
+              <a (click)="genererQrCode()" >Qr code settings</a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
-    <div *ngIf="!linkClick">
+    <div *ngIf="!sharedRouter.linkClick">
       <router-outlet ></router-outlet>
     </div>
-    <div class="services" *ngIf="linkClick">
+    <div class="services" *ngIf="sharedRouter.linkClick">
+
       <div class="dispo c1">
         <h2>
-          <span><i class="fas fa-headset"></i></span>
-          50000DH
+          <span><i class="fas fa-user-plus"></i></span>
+          open account 200 DH
+          <span class="reduction">
+            <img src="../../assets/media/10-percent.svg" alt="reduction de 10%">
+          </span>
         </h2>
         <i class="fa fa-ellipsis-h"></i>
       </div>
-      <div class="dispo c1">
+      <div class="dispo c2">
         <h2>
-          <span><i class="fas fa-headset"></i></span>
-          50000DH
+          <span><i class="fas fa-user-plus"></i></span>
+            open account 5000 DH
+          <span class="reduction">
+            <img src="../../assets/media/discount.svg" alt="reduction de 15%">
+          </span>
         </h2>
         <i class="fa fa-ellipsis-h"></i>
       </div>
-      <div class="dispo c1">
+      <div class="dispo c3">
         <h2>
-          <span><i class="fas fa-headset"></i></span>
-          50000DH
+          <span><i class="fas fa-user-plus"></i></span>
+          open account 200000 DH
+          <span class="reduction">
+              <img src="../../assets/media/30-percent.svg" alt="reduction de 15%">
+          </span>
         </h2>
         <i class="fa fa-ellipsis-h"></i>
       </div>
     </div>
-    <div class="client-added" *ngIf="linkClick" >
+    <div class="client-added" *ngIf="sharedRouter.linkClick" >
         <div class="graph-1">
           <div class="header">
             <h1><span><i class="fa-solid fa-tent-arrow-left-right"></i></span>latest transactions</h1>
           </div>
-          <div class="main">
-
-          </div>
+          <div class="main-transaction">
+              <div class="transactions" *ngFor="let histo of Object.values(listofTransaction);let i=index">
+                <div class="transaction-historique" >
+                  <div class="icon">
+                    <i class="fa-solid fa-money-check"></i>
+                  </div>
+                  <div class="conetent-transaction">
+                    <h1>{{histo.facturePaye}}</h1>
+                    <h3>{{histo.date}}</h3>
+                  </div>
+                </div>
+                <div class="montant-transcation">
+                  <h1>{{histo.montant+"DH"}}</h1>
+                </div>
+              </div>
+        </div>
         </div>
       <div class="graph-2">
         <div class="header">
@@ -151,12 +190,11 @@
             <img src="../../assets/media/carousel-1.jpg">
           </div>
           <div ngxSlickItem class="compte">
-            <img src="../../assets/media/carousel-4.jpg">
+            <img src="../../assets/media/carousel-7.jpg">
           </div>
           <div ngxSlickItem class="compte">
             <img src="../../assets/media/carousel-3.jpg">
           </div>
-          <!-- Ajoutez d'autres diapositives au besoin -->
         </ngx-slick-carousel>
       </div>
     </div>

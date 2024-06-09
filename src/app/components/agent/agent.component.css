@@ -357,7 +357,22 @@ background-image: linear-gradient(to right,#1c4c5b, #5a93a6);
 
 
 }
+.test{
+  display: grid;
+  grid-template-columns: auto ;
+  gap: 20px;
+  width: 95%;
+  height: auto;
+  margin: 40px auto 0px;
+  border-radius: 10px;
+}
+.compte{
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 10px;
 
+}
 
 #myChart{
   width: 70%;
@@ -380,7 +395,8 @@ background-image: linear-gradient(to right,#1c4c5b, #5a93a6);
   transform: translateY(50px);
   right: 100px;
   cursor: pointer;
-  background-color:#3d0466;
+  background-color:orangered;
+  color: #ffffff;
 }
 .small-view {
   position: absolute;

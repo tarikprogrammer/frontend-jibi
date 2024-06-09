@@ -19,7 +19,8 @@ export class ThirdAddComponent implements OnInit{
   }
   ngOnInit(): void {
     this.thirdAdd=this.fb.group({
-      file:[""],
+     nationality:[''],
+      accountType:['']
 
     })
   }
@@ -47,6 +48,7 @@ export class ThirdAddComponent implements OnInit{
            setTimeout(()=>{
              this.createdMessage="";
              this.createdClient=false;
+             window.location.reload();
            },3000)
         },(error)=>{
          console.log(error)
