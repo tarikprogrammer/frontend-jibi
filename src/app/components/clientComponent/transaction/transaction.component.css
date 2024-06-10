@@ -75,3 +75,20 @@ select {
   background-color:#EEEEEE;
   border: 1px solid #000000;
 }
+
+
+::ng-deep .swal2-popup {
+  margin-left: 100px;
+  width: 340px !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .custom-swal-title {
+  font-size: 14px !important;
+  color: #07c870 !important;
+}
+::ng-deep .custom-swal-title-error{
+  font-size: 14px !important;
+  color: red !important;
+}

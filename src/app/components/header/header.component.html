@@ -1,4 +1,4 @@
-<nav class="bg-[#ffcd38] w-full header py-3 fixed z-50">
+<nav class="bg-[#6420AA] w-full header py-3 fixed z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center gap-2 logo">
@@ -10,25 +10,25 @@
           <div class="flex items-baseline space-x-4">
             <a
               [class.active-link]="isActive('/home')"
-              class="slideRight1 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              class="slideRight1 text-white hover:bg-[#5b0494] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
               href="/home"
             ><i class='bx bxs-home'></i> {{ 'home' | translate }}</a
             >
             <a
               [class.active-link]="isActive('/back-office')"
-              class="slideRight2 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              class="slideRight2 text-white hover:bg-[#5b0494] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
               href="/back-office"
             ><i class='bx bxs-dashboard'></i> {{ 'back-office' | translate }}</a
             >
             <a
               [class.active-link]="isActive('/customer-space')"
-              class="slideRight3 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              class="slideRight3 text-white hover:bg-[#5b0494] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
               href="/customer-space"
             ><i class='bx bxs-group'></i> {{ 'customerSpace' | translate }}</a
             >
             <a
               [class.active-link]="isActive('/payment')"
-              class="slideRight4 text-gray-800 hover:bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+              class="slideRight4 text-white hover:bg-[#5b0494] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
               href="/payment"
             ><i class='bx bxs-credit-card'></i> {{ 'payment' | translate }}</a
             >
@@ -39,14 +39,14 @@
       <div class="hidden md:block">
         <a
           [class.active-link]="isActive('/login')"
-          class="login mr-2 text-gray-800  bg-[#e9a123] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+          class="login mr-2 text-white hover:bg-[#5b0494] hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
           href="/login"
         >
           <i class='bx bxs-user'></i> Login
         </a>
         <a
           [class.active-link]="isActive('/signup')"
-          class="signup text-gray-800  hover:text-white px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
+          class="signup text-white hover:bg-[#850F8D] bg-[#8644A2] px-3 py-2 rounded-md text-[1rem] font-medium transition duration-300"
           href="/signup"
         >
           <i class='bx bxs-user-plus'></i> Sign Up

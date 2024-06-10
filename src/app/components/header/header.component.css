@@ -1,5 +1,7 @@
 .header{
-  box-shadow: 0px 0px 50px 2px #f47e17;
+  /*box-shadow: 0px 0px 50px 2px #f47e17;*/
+  box-shadow: 0px 0px 50px 2px #6420AA;
+
 
 }
 
@@ -10,7 +12,7 @@ i{
 }
 
 .active-link {
-  color: #ba3339; /* This is the hex code for ng-indigo-600 */
+  color: #FFBF00; /* This is the hex code for ng-indigo-600 */
 }
 
 .slideRight1{

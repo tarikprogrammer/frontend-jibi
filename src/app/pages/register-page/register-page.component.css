@@ -15,7 +15,7 @@
 }
 
 .img {
-  background-image: url("src/assets/media/blob-scene-haikei (2).svg");
+  background-image: url("src/assets/media/body1.jpg");
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the image from repeating */

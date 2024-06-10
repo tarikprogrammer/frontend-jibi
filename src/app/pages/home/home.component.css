@@ -1,5 +1,6 @@
 .img {
-  background-image: url("src/assets/media/blob-scene-haikei (1).svg");
+  /*background-image: url("src/assets/media/blob-scene-haikei (1).svg");*/
+  background-image: url("src/assets/media/body1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -53,8 +53,15 @@ import { CountdownModule } from 'ngx-countdown';
 import { OtpComponent } from './components/clientComponent/otp/otp.component';
 import { CreanceChosedComponent } from './components/clientComponent/creance-chosed/creance-chosed.component';
 import { TransactionComponent } from './components/clientComponent/transaction/transaction.component';
-import { GenerateQrComponent } from './components/clientComponent/generate-qr/generate-qr.component';
+
 import { QrCodeModule } from 'ng-qrcode';
+import {GenerateQrComponent} from "./components/clientComponent/generate-qr/generate-qr.component";
+import { FooterComponent } from './components/footer/footer.component';
+import { FooterPageComponent } from './pages/footer-page/footer-page.component';
+import { PWalletComponent } from './components/agentComponent/p-wallet/p-wallet.component';
+import { FirstWalletComponent } from './components/addPWallet/first-wallet/first-wallet.component';
+import { SecondWalletComponent } from './components/addPWallet/second-wallet/second-wallet.component';
+import { ThirdWalletComponent } from './components/addPWallet/third-wallet/third-wallet.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -110,7 +117,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     OtpComponent,
     CreanceChosedComponent,
     TransactionComponent,
-    GenerateQrComponent
+    GenerateQrComponent,
+    FooterComponent,
+    FooterPageComponent,
+    PWalletComponent,
+    FirstWalletComponent,
+    SecondWalletComponent,
+    ThirdWalletComponent
   ],
     imports: [
         BrowserModule,
@@ -118,7 +131,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         ReactiveFormsModule,
         AppRoutingModule,
         FormsModule,
-        QrCodeModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

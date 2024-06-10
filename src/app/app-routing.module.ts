@@ -26,6 +26,7 @@ import {OtpComponent} from "./components/clientComponent/otp/otp.component";
 import {CreanceChosedComponent} from "./components/clientComponent/creance-chosed/creance-chosed.component";
 import {TransactionComponent} from "./components/clientComponent/transaction/transaction.component";
 import {GenerateQrComponent} from "./components/clientComponent/generate-qr/generate-qr.component";
+import {PWalletComponent} from "./components/agentComponent/p-wallet/p-wallet.component";
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
       {path:'add',component:AddClientComponent},
       {path:'profile',component:UpdateProfileComponent},
       {path:'clients',component:ShowClientComponent},
-      { path: 'login', component: LoginPageComponent }
+      { path: 'login', component: LoginPageComponent },
+      {path:'p-wallet',component:PWalletComponent}
     ]},
   {path:'admin',component:AdminPageComponent},
   {path:'client',component:ClientComponent,canActivate:[AuthGuardClient],children:[{

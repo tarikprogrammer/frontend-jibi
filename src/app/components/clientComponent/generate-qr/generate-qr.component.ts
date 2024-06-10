@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {RouterClientService} from "../../../services/RouterShared/router-client.service";
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {data} from "autoprefixer";
 
 @Component({
   selector: 'app-generate-qr',
@@ -14,6 +15,9 @@ import { map } from 'rxjs/operators';
 export class GenerateQrComponent implements OnInit{
   formRIB!:FormGroup;
   qrResponse!:any;
+  qrCodeImage: string | null = null;
+  isGenerated:boolean=false;
+  buttonClicked:boolean=false;
   ngOnInit(): void {
   }
   constructor(public getHisto:HistoriqueService,private router:Router,private fb:FormBuilder,private sharedRouter:RouterClientService) {
@@ -25,23 +29,34 @@ export class GenerateQrComponent implements OnInit{
   }
 
   generateQr() {
+    this.buttonClicked=true;
     this.formRIB=this.fb.group({
       RIB:[this.getHisto.response.ref]
     })
     console.log(this.getHisto.response.ref)
     this.getHisto.generateQr(this.formRIB).subscribe(
-      (response: HttpResponse<Blob>) => {
-        console.log(response)
-        if (response !== null && response.body !== null) {
-          const blob = new Blob([response.body], { type: 'image/' });
-          const url = window.URL.createObjectURL(blob);
-          console.log(url);
-        }
+      (base64QrImage:any) => {
+        setTimeout(()=>{
+          this.qrCodeImage = `${base64QrImage}`;
+          this.isGenerated=true;
+          this.buttonClicked=false;
+        },2000)
+        console.log(this.qrCodeImage)
       },
-      (error: any) => {
-        console.log("erreur")
+      (error) => {
+        console.error('Error generating QR code', error);
       }
     );
+
+  }
+
+  download() {
+    if (this.qrCodeImage) {
+      const link = document.createElement('a');
+      link.href = this.qrCodeImage;
+      link.download = 'qrcode.png';
+      link.click();
+    }
 
   }
 }

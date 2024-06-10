@@ -4,7 +4,7 @@
     <ol role="list" class="flex items-center space-x-4">
       <li>
         <div
-          class="cursor-pointer text-sm font-medium hover:text-[#E9A123]"
+          class="cursor-pointer text-sm font-medium text-white hover:text-[#E9A123]"
           [class.text-[#BA3339]="currentStep === 1"
           [class.active-link]="currentStep === 1"
           (click)="showStep(1)"
@@ -27,7 +27,7 @@
             />
           </svg>
           <div
-            class="cursor-pointer text-sm font-medium hover:text-[#E9A123]"
+            class="cursor-pointer text-sm font-medium text-white hover:text-[#E9A123]"
             [class.text-gray-500]="currentStep !== 2"
             [class.active-link]="currentStep === 2"
             (click)="showStep(2)"
