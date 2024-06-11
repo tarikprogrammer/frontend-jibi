@@ -12,7 +12,8 @@
           <p>type de compte</p>
         </div>
           <div class="account-c">
-            <span>{{account.account.accountType}}</span>
+            <span *ngIf="getSession().accountType">{{account.account.accountType}}</span>
+            <span *ngIf="!getSession().accountType">compte professionnel</span>
           </div>
       </div>
       <div class="account-content">

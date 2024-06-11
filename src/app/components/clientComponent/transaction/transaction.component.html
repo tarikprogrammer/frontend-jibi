@@ -1,11 +1,11 @@
-<div class="container" [formGroup]="formTransaction">
+<div class="container" >
   <div class="header">
     <div>
       <span><i class="fa-solid fa-paperclip"></i></span>
       <h2>FAIRE UNE TRANSACTION</h2>
     </div>
   </div>
-  <div class="container-content">
+  <div class="container-content" [formGroup]="formTransaction">
     <div class="logoCreancier">
       <img src="../../assets/media/transactionMoney.png" alt="redal's logo">
     </div>
@@ -26,7 +26,7 @@
       </div>
       <div class="form" >
         <div>
-         <input type="number" formControlName="Amount" placeholder="entrer le montant">
+         <input type="number" formControlName="amount" placeholder="entrer le montant">
         </div>
       <div class="buttons">
         <button type="submit" (click)="annuler()" >annuler</button>

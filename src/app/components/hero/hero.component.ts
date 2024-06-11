@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import Typed from 'typed.js'; // Adjust this line based on your project setup
+import Typed from 'typed.js';
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router"; // Adjust this line based on your project setup
 
 
 @Component({
@@ -10,6 +12,8 @@ import Typed from 'typed.js'; // Adjust this line based on your project setup
 export class HeroComponent implements AfterViewInit {
   @ViewChild('mutlipleText') mutlipleText!: ElementRef;
 
+  constructor(public router:Router) {
+  }
   ngAfterViewInit() {
     const typed = new Typed(this.mutlipleText.nativeElement, {
       strings: ['FASTER','SMOOTHER'],

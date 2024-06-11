@@ -40,6 +40,7 @@ export class ClientComponent {
   }
   ngOnInit(): void {
     this.setHome();
+    console.log(this.getSession().value);
   }
   ngAfterViewInit(): void {
     this.notificationAgent="change your password";

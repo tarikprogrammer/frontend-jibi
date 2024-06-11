@@ -9,7 +9,9 @@
             <image *ngIf="getSession().cover" [attr.xlink:href]="coverPath+getSession().cover"   x="0" y="0" width="24" height="24" class="rounded-full" />
           </svg>
         </div>
-        <h3>{{getSession().fname}}<span>(client)</span></h3>
+        <h3>{{getSession().fname}}<span *ngIf="getSession().proClient">(client pro)</span>
+          <span *ngIf="!getSession().proClient">(client)</span>
+        </h3>
       </div>
       <span class="dismiss">
             <i class="fa-solid fa-xmark"></i>
@@ -102,7 +104,8 @@
         </div>
         <div class="name">
           <p>Hey,<strong> {{getSession().fname}}</strong></p>
-          <small>client</small>
+          <small *ngIf="getSession().proClient">client pro</small>
+          <small *ngIf="!getSession().proClient">client </small>
         </div>
         <div class="img" (click)="changerProfile()">
           <svg class="h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -155,20 +158,23 @@
             <h1><span><i class="fa-solid fa-tent-arrow-left-right"></i></span>latest transactions</h1>
           </div>
           <div class="main-transaction">
-              <div class="transactions" *ngFor="let histo of Object.values(listofTransaction);let i=index">
-                <div class="transaction-historique" >
+              <div class="transactions"  *ngFor="let histo of Object.values(listofTransaction);let i=index">
+                <div class="transaction-historique" *ngIf="Object.values(listofTransaction).length" >
                   <div class="icon">
                     <i class="fa-solid fa-money-check"></i>
                   </div>
-                  <div class="conetent-transaction">
+                  <div class="conetent-transaction" *ngIf="Object.values(listofTransaction).length">
                     <h1>{{histo.facturePaye}}</h1>
                     <h3>{{histo.date}}</h3>
                   </div>
                 </div>
-                <div class="montant-transcation">
+                <div class="montant-transcation" *ngIf="Object.values(listofTransaction).length">
                   <h1>{{histo.montant+"DH"}}</h1>
                 </div>
               </div>
+            <div class="vide-historique" *ngIf="!Object.values(listofTransaction).length" >
+              <h1>historique vide </h1>
+            </div>
         </div>
         </div>
       <div class="graph-2">

@@ -1,0 +1,8 @@
+<div *ngIf="currentStep === 1">
+  <app-first-wallet (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-first-wallet>  </div>
+<div *ngIf="currentStep === 2 ">
+  <app-second-wallet (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-second-wallet>
+</div>
+<div *ngIf="currentStep === 3">
+  <app-third-wallet (scrollToTopRequest)="scrollToTop()" [step]="currentStep" (stepChange)="currentStep = $event"></app-third-wallet>
+</div>

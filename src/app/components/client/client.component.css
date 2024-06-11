@@ -599,3 +599,12 @@ aside{
   }
 
 }
+.vide-historique{
+  position: absolute;
+  font-size: 18px;
+  color: #FFFFFF;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+}
